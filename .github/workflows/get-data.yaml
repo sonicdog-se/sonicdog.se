@@ -1,0 +1,17 @@
+name: Get data
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 'web'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python scripts/get-data.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
