@@ -13,5 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - run: python scripts/get-data.py
+          cache: 'pip'
+      - run: |
+          pip install -r scripts/requirements.txt
+          python scripts/get-data.py
       - uses: stefanzweifel/git-auto-commit-action@v5
