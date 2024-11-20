@@ -1,8 +1,7 @@
 import datetime
 import os
-import time
-
 import requests
+import time
 
 
 class PriceVolume:
@@ -155,7 +154,7 @@ def handle_dates(from_date: datetime.date, to_date: datetime.date):
         data[date].fcrd_down.append(PriceVolume(decimal2(columns[15]), 0))
         num_hours_seen += 1
 
-    filename = f"dist/data/{from_date.year}.csv"
+    filename = f"docs/data/{from_date.year}.csv"
     with open(filename, "a") as fd:
         date = from_date
         while date <= to_date:
