@@ -174,10 +174,9 @@ def run():
     for year in range(starting_year, end_date.year + 1, 1):
         year_end = datetime.date(year, 12, 31)
         if os.path.isfile(f"{year}.csv"):
-            with open(f"{year}.csv", "r") as fd:
+            with open(f"docs/data/{year}.csv", "r") as fd:
                 for line in fd:
-                    if not line.rstrip():
-                        break
+                    pass
                 last_date = datetime.datetime.strptime(line.split(",")[0], "%Y-%m-%d").date()
                 if last_date >= end_date or last_date.month == 12 and last_date.day == 31:
                     print(f"Have all of {year}")
